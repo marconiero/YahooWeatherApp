@@ -7,7 +7,8 @@ angular
 
 function weatherAppCtrl(weatherApi, $scope) {
 
-  $scope.messaggio = "CIAO"
+  $scope.messaggio = "weather.yahoo.com/country/state/city-2460286/"
+
 
   var weatherAppPromise = weatherApi.weatherApp()
   console.log(weatherAppPromise);
