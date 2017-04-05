@@ -1,4 +1,4 @@
-angular
+/*angular
 .module('demoApp')
 .controller('levelCrimesCtrl', levelCrimesCtrl);
 
@@ -24,7 +24,7 @@ function levelCrimesCtrl($policeApi) {
           //ctrl.isLoading = false;
        }
 
-        function initMap() {
+        /*function initMap() {
                var uluru = {lat: 52.629835, lng: -1.133005};
                var map = new google.maps.Map(document.getElementById('map'), {
                  zoom: 4,
@@ -35,6 +35,6 @@ function levelCrimesCtrl($policeApi) {
                  map: map
                });
              }
-}
+}*/
 
 

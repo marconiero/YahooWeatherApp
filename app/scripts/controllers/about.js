@@ -1,4 +1,4 @@
-'use strict';
+/*'use strict';
 
 /**
  * @ngdoc function
@@ -7,11 +7,11 @@
  * # AboutCtrl
  * Controller of the demoApp
  */
-angular.module('demoApp')
+/*angular.module('demoApp')
   .controller('AboutCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-  });
+  })*/

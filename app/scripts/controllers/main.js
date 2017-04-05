@@ -1,4 +1,4 @@
-'use strict';
+/*'use strict';
 
 /**
  * @ngdoc function
@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the demoApp
  */
-var myApp = angular.module('demoApp')
+/*var myApp = angular.module('demoApp')
 
 myApp
   .controller('MainCtrl', function ($scope, $policeApi) {
@@ -41,5 +41,5 @@ myApp
 
      function showLoader() {
         ctrl.isLoading = true;
-     }*/
-  });
+     }
+  });*/

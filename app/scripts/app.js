@@ -35,7 +35,7 @@ angular
       }).when('/weatherApp', {
       templateUrl: 'views/weatherAppView.html',
       controller: 'weatherAppCtrl',
-      controllerAs: 'weatherAppCtrl'
+      controllerAs: 'weatherApp'
     })
 
       .otherwise({

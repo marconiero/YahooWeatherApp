@@ -1,12 +1,10 @@
-angular
+/*angular
 .module('demoApp')
 .service('$policeApi', ['$http', PoliceApiService ])
 
 function PoliceApiService($http) {
 
-  //var endpoint = 'https://data.police.uk/api/';
-  var endpoint2 = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20' +
-    'from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22greenland%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys';
+  //var endpoint = 'https://data.police.uk/api/'
 
   /*return {
     streeLevelCrimes: streeLevelCrimes
@@ -30,9 +28,9 @@ function PoliceApiService($http) {
           return response.data;
       })
 
-      //return remoteCall;*/
+      //return remoteCall;
 
 
    //return remoteCall2;
-}
+}*/
 

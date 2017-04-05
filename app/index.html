@@ -32,14 +32,11 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-
-            <a class="navbar-brand" href="#/">demo</a>
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
             <ul class="nav navbar-nav">
-              <li><a ng-href="#/levelCrimes">Level crimes</a></li>
               <li><a ng-href="#/weatherApp">Weather App</a></li>
             </ul>
           </div>
@@ -52,9 +49,6 @@
     </div>
 
     <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
     </div>
 
 
@@ -79,12 +73,7 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/weatherAppCtrl.js"></script>
         <script src="scripts/models/weatherApp.service.js"></script>
-        <script src="scripts/controllers/levelCrimes.js"></script>
-        <script src="scripts/models/dataPolice.service.js"></script>
-
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-
+        <script async defer src="https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22nome%2C%20ak%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"> </script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAb90TeYWIxF7rR5NEq5G6BfouuRKsibc"> </script>
         <!-- endbuild -->
 </body>

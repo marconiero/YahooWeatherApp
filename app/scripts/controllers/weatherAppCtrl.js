@@ -7,7 +7,7 @@ angular
 
 function weatherAppCtrl(weatherApi, $scope) {
 
-  $scope.messaggio = "weather.yahoo.com/country/state/city-2460286/"
+  $scope.messaggio = "Questo è un messaggio!"
 
 
   var weatherAppPromise = weatherApi.weatherApp()
@@ -18,8 +18,8 @@ function weatherAppCtrl(weatherApi, $scope) {
     .catch(showError)
     .finally(hideLoader)
 
-    function weatherAppToPage(weatherApp) {
-      console.log(error);
+    function weatherAppToPage() {
+      initMap();
     }
 
     function showError(error) {
@@ -29,4 +29,21 @@ function weatherAppCtrl(weatherApi, $scope) {
     function hideLoader(error) {
       console.log(error);
     }
+
+    function mostraArray() {
+
+
+    }
+
+  function initMap() {
+    var uluru = {lat: 52.629835, lng: -1.133005};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 4,
+      center: uluru
+    });
+    var marker = new google.maps.Marker({
+      position: uluru,
+      map: map
+    });
+  }
 }
