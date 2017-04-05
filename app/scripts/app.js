@@ -32,7 +32,11 @@ angular
         templateUrl: 'views/levelCrimes.html',
         controller: 'levelCrimesCtrl',
         controllerAs: 'levelCrimes'
-      })
+      }).when('/weatherApp', {
+      templateUrl: 'views/weatherAppView.html',
+      controller: 'weatherAppCtrl',
+      controllerAs: 'weatherAppCtrl'
+    })
 
       .otherwise({
         redirectTo: '/'

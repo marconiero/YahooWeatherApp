@@ -39,10 +39,8 @@
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/about">About</a></li>
               <li><a ng-href="#/levelCrimes">Level crimes</a></li>
-              <li><a ng-href="#/">Contact</a></li>
+              <li><a ng-href="#/weatherApp">Weather App</a></li>
             </ul>
           </div>
         </div>
@@ -79,13 +77,14 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/weatherAppCtrl.js.js"></script>
         <script src="scripts/controllers/levelCrimes.js"></script>
         <script src="scripts/models/dataPolice.service.js"></script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAb90TeYWIxF7rR5NEq5G6BfouuRKsibc">
-    </script>
+
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/about.js"></script>
+
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAb90TeYWIxF7rR5NEq5G6BfouuRKsibc"> </script>
         <!-- endbuild -->
 </body>
 </html>

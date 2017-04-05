@@ -1,6 +1,7 @@
 angular
 .module('demoApp')
 .controller('levelCrimesCtrl', levelCrimesCtrl);
+
 function levelCrimesCtrl($policeApi) {
       var streeLevelCrimesPromise = $policeApi.streeLevelCrimes()
       console.log(streeLevelCrimesPromise);
