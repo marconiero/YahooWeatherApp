@@ -7,9 +7,6 @@ angular
 
 function weatherAppCtrl(weatherApi, $scope) {
 
-  $scope.messaggio = "Questo è un messaggio!"
-
-
   var weatherAppPromise = weatherApi.weatherApp()
   console.log(weatherAppPromise);
 
@@ -18,8 +15,10 @@ function weatherAppCtrl(weatherApi, $scope) {
     .catch(showError)
     .finally(hideLoader)
 
-    function weatherAppToPage() {
-      initMap();
+
+    function weatherAppToPage(variabile) {
+      variabile = variabile.data.query.results.channel.astronomy.sunrise
+      document.getElementById('sunrise').innerHTML = variabile;
     }
 
     function showError(error) {
@@ -30,12 +29,8 @@ function weatherAppCtrl(weatherApi, $scope) {
       console.log(error);
     }
 
-    function mostraArray() {
 
-
-    }
-
-  function initMap() {
+  /*function initMap() {
     var uluru = {lat: 52.629835, lng: -1.133005};
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 4,
@@ -45,5 +40,5 @@ function weatherAppCtrl(weatherApi, $scope) {
       position: uluru,
       map: map
     });
-  }
+  }*/
 }
