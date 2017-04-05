@@ -33,6 +33,6 @@ function PoliceApiService($http) {
       //return remoteCall;*/
 
 
-   return remoteCall2;
+   //return remoteCall2;
 }
 

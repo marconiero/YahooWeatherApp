@@ -17,9 +17,9 @@ myApp
 
     console.log(ctrl)
 
-    showLoader();
+    //showLoader();
 
-    var streeLevelCrimesPromise = $policeApi.streeLevelCrimes()
+    /*var streeLevelCrimesPromise = $policeApi.streeLevelCrimes()
     console.log(streeLevelCrimesPromise);
 
     streeLevelCrimesPromise
@@ -41,5 +41,5 @@ myApp
 
      function showLoader() {
         ctrl.isLoading = true;
-     }
+     }*/
   });

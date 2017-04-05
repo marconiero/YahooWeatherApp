@@ -5,9 +5,11 @@ angular
 .module('demoApp')
 .controller('weatherAppCtrl', weatherAppCtrl);
 
-function weatherAppCtrl($weatherApi) {
+function weatherAppCtrl(weatherApi, $scope) {
 
-  var weatherAppPromise = $weatherApi.weatherApp()
+  $scope.messaggio = "CIAO"
+
+  var weatherAppPromise = weatherApi.weatherApp()
   console.log(weatherAppPromise);
 
   weatherAppPromise
@@ -19,11 +21,11 @@ function weatherAppCtrl($weatherApi) {
       console.log(error);
     }
 
-    function showError() {
+    function showError(error) {
       console.log(error);
     }
 
-    function hideLoader() {
+    function hideLoader(error) {
       console.log(error);
     }
 }
