@@ -22,18 +22,19 @@ function weatherAppCtrl(weatherApi, $scope) {
     getForecast(response.data.query.results.place[0])
   }
 
-  function getForecast(item) {
+  function getForecast(dateItem) {
     //get forecast for woeid
     weatherApi
-      .getForecast(item.woeid)
-      .then(function (response) {
+      .getForecast(dateItem.woeid)
+      .then(function (dateResponse) {
         //attach forecast to scope (view)
-        $scope.response = response.data;
+          $scope.dateResponse = dateResponse.data.query.results.channel.item.condition.date
       })
   }
 
+
   function showError(error) {
-    console.log(error);
+    window.alert(error);
   }
 
   function hideLoader(error) {

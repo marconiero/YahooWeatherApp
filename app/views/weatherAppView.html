@@ -1,16 +1,9 @@
 <form ng-submit="searchCity()">
   <input type="text" ng-model="cityName">
   <button type="submit">Cerca</button>
+  <button type="reset">Elimina ricerca</button>
 </form>
 
-
-<div>
-    <p>Nome della città: <input type="text" ng-model="cityName"></p>
-
-</div>
-
-
-  <tr id="nomeCitta">{{description}}</tr>
 
 <!--
 <ul>
@@ -19,8 +12,17 @@
   </li>
 </ul>
 -->
+<table>
+  <tr>
+    <th>Data</th>
+    <th>Condizioni</th>
+    <th>Temperatura</th>
+  </tr>
+    <tr>
+      <td>{{dateResponse}}</tr>
+  </td>
+</table>
 
-<pre> {{response | json}}</pre>
 
 
 
