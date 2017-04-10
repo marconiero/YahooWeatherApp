@@ -19,20 +19,7 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      }).when('/levelCrimes', {
-        templateUrl: 'views/levelCrimes.html',
-        controller: 'levelCrimesCtrl',
-        controllerAs: 'levelCrimes'
-      }).when('/weatherApp', {
+      .when('/weatherApp', {
       templateUrl: 'views/weatherAppView.html',
       controller: 'weatherAppCtrl',
       controllerAs: 'weatherApp'

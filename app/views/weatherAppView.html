@@ -1,0 +1,27 @@
+<form ng-submit="searchCity()">
+  <input type="text" ng-model="cityName">
+  <button type="submit">Cerca</button>
+</form>
+
+
+<div>
+    <p>Nome della città: <input type="text" ng-model="cityName"></p>
+
+</div>
+
+
+  <tr id="nomeCitta">{{description}}</tr>
+
+<!--
+<ul>
+  <li ng-repeat="woeid in woeids" ng-click="getForecast(woeid)">
+    <pre> {{woeid}}</pre>
+  </li>
+</ul>
+-->
+
+<pre> {{response | json}}</pre>
+
+
+
+

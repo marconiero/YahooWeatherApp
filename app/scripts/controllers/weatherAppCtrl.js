@@ -2,43 +2,41 @@
  * Created by marconiero on 05/04/17.
  */
 angular
-.module('demoApp')
-.controller('weatherAppCtrl', weatherAppCtrl);
+  .module('demoApp')
+  .controller('weatherAppCtrl', weatherAppCtrl);
 
 function weatherAppCtrl(weatherApi, $scope) {
 
-  var weatherAppPromise = weatherApi.weatherApp()
-  console.log(weatherAppPromise);
 
-  weatherAppPromise
-    .then(weatherAppToPage)
-    .catch(showError)
-    .finally(hideLoader)
+  $scope.searchCity = searchCity;
+  $scope.getForecast = getForecast;
 
 
-    function weatherAppToPage(variabile) {
-      variabile = variabile.data.query.results.channel.astronomy.sunrise
-      document.getElementById('sunrise').innerHTML = variabile;
-    }
+  function searchCity(){
+    weatherApi
+      .searchCityWoeid($scope.cityName)
+      .then(weatherAppToPage)
+  }
 
-    function showError(error) {
-      console.log(error);
-    }
+  function weatherAppToPage(response) {
+    getForecast(response.data.query.results.place[0])
+  }
 
-    function hideLoader(error) {
-      console.log(error);
-    }
+  function getForecast(item) {
+    //get forecast for woeid
+    weatherApi
+      .getForecast(item.woeid)
+      .then(function (response) {
+        //attach forecast to scope (view)
+        $scope.response = response.data;
+      })
+  }
 
+  function showError(error) {
+    console.log(error);
+  }
 
-  /*function initMap() {
-    var uluru = {lat: 52.629835, lng: -1.133005};
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 4,
-      center: uluru
-    });
-    var marker = new google.maps.Marker({
-      position: uluru,
-      map: map
-    });
-  }*/
+  function hideLoader(error) {
+    console.log(error);
+  }
 }
