@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'angularSpinner'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -26,6 +27,6 @@ angular
     })
 
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/weatherApp'
       });
   });

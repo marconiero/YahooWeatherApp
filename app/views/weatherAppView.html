@@ -1,29 +1,44 @@
 <form ng-submit="searchCity()">
-  <input type="text" ng-model="cityName">
-  <button type="submit">Cerca</button>
-  <button type="reset">Elimina ricerca</button>
+
+  <div class="input-group">
+    <input type="text" ng-model="cityName" class="form-control" placeholder="Cerca una città">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="submit">Cerca</button>
+      <span us-spinner="{radius:30, width:8, length: 16}" ng-if="isSearching"></span>
+      </span>
+  </div><!-- /input-group -->
+
 </form>
 
+<div class="alert alert-warning" role="alert" ng-if="noResults">
+  <p>Nessun risultato</p>
+</div>
 
-<!--
-<ul>
-  <li ng-repeat="woeid in woeids" ng-click="getForecast(woeid)">
-    <pre> {{woeid}}</pre>
-  </li>
-</ul>
--->
-<table>
+<table class="table" ng-if="dateResponse.length > 0">
+  <thead>
   <tr>
-    <th>Data</th>
-    <th>Condizioni</th>
-    <th>Temperatura</th>
+    <th>Date</th>
+    <th>Day</th>
+    <th>T-Max</th>
+    <th>T-Min</th>
+    <th>Condition</th>
+    <th>
+      <button class="btn btn-info" ng-click="resetData()">Elimina dati</button>
+    </th>
+    <th>
+      <button class="btn btn-info" ng-click="searchCity()">Aggiorna dati</button>
+    </th>
   </tr>
-    <tr>
-      <td>{{dateResponse}}</tr>
-  </td>
+  </thead>
+  <tbody>
+  <tr ng-repeat="x in dateResponse">
+    <td>{{x.date}}</td>
+    <td>{{x.day}}</td>
+    <td>{{x.high}}</td>
+    <td>{{x.low}}</td>
+    <td>{{x.text}}</td>
+  </tr>
+  </tbody>
 </table>
 
-
-
-
-
+<div id="map"></div>
