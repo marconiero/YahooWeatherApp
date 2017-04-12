@@ -57,12 +57,9 @@ function weatherAppCtrl(weatherApi, $scope) {
 
   function resetData() {
     $scope.dateResponse = null;
-    initMap({lat: parseFloat(null), lng: parseFloat(null)});
   }
 
-
   function initMap(city) {
-
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 12,
       center: city
@@ -72,5 +69,4 @@ function weatherAppCtrl(weatherApi, $scope) {
       map: map
     });
   }
-
 }
