@@ -25,7 +25,6 @@ angular
       controller: 'weatherAppCtrl',
       controllerAs: 'weatherApp'
     })
-
       .otherwise({
         redirectTo: '/weatherApp'
       });
