@@ -11,10 +11,14 @@ function weatherAppCtrl(weatherApi, $scope) {
   $scope.getForecast = getForecast;
   $scope.resetData = resetData;
   $scope.dateResponse = [];
+  $scope.dateResponse2 = [];
   $scope.isSearching = false;
+
+
 
   function searchCity() {
     //l'utente ha cercato almeno una volta
+
     $scope.isSearching = true;
     weatherApi
       .searchCityWoeid($scope.cityName)
@@ -29,6 +33,7 @@ function weatherAppCtrl(weatherApi, $scope) {
     }
 
     var place;
+
     if (response.data.query.count === 1) {
       place = response.data.query.results.place;
     } else {
@@ -36,6 +41,7 @@ function weatherAppCtrl(weatherApi, $scope) {
     }
 
     getForecast(place)
+
   }
 
   function getForecast(dateItem) {
@@ -50,7 +56,9 @@ function weatherAppCtrl(weatherApi, $scope) {
           return;
         }
         //attach forecast to scope (view)
+          $scope.dateResponse2 = dateResponse.data.query.results.channel.description
         $scope.dateResponse = dateResponse.data.query.results.channel.item.forecast
+
       initMap({lat: parseFloat(dateResponse.data.query.results.channel.item.lat),lng: parseFloat(dateResponse.data.query.results.channel.item.long)})
       });
   }

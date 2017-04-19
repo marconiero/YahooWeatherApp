@@ -14,32 +14,41 @@
 <div class="alert alert-warning" role="alert" ng-if="noResults">
   <p>Nessun risultato</p>
 </div>
-
+<br>
 <table class="table" ng-if="dateResponse.length > 0">
   <thead>
   <tr>
+    <th>City</th>
     <th>Date</th>
     <th>Day</th>
     <th>T-Max</th>
     <th>T-Min</th>
     <th>Condition</th>
+    <th>Delete</th>
     <th>
-      <button class="btn btn-info" ng-click="resetData()">Elimina dati</button>
+      <button class="btn btn-info" ng-click="addCity()">Aggiungi</button>
     </th>
     <th>
-      <button class="btn btn-info" ng-click="searchCity()">Aggiorna dati</button>
+      <button class="btn btn-info" ng-click="searchCity()">Aggiorna</button>
     </th>
   </tr>
   </thead>
   <tbody>
-  <tr ng-repeat="x in dateResponse">
-    <td>{{x.date}}</td>
-    <td>{{x.day}}</td>
-    <td>{{x.high}}</td>
-    <td>{{x.low}}</td>
-    <td>{{x.text}}</td>
+  <tr>
+    <td>{{dateResponse2.slice(19)}}</td>
+    <td>{{dateResponse[0].date}}</td>
+    <td>{{dateResponse[0].day}}</td>
+    <td>{{dateResponse[0].high}}</td>
+    <td>{{dateResponse[0].low}}</td>
+    <td>{{dateResponse[0].text}}</td>
+    <td><button class="btn btn-info" ng-click="resetData()">Elimina</button></td>
   </tr>
+
   </tbody>
 </table>
+
+
+
+
 
 <div id="map" ng-if="dateResponse.length != null"></div>
