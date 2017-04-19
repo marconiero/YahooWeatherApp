@@ -38,10 +38,12 @@
     <td>{{dateResponse.description.slice(19)}}</td>
     <td>{{dateResponse.forecast[0].date}}</td>
     <td>{{dateResponse.forecast[0].day}}</td>
-    <td>{{dateResponse.forecast[0].high}}</td>
-    <td>{{dateResponse.forecast[0].low}}</td>
+    <td>{{((((dateResponse.forecast[0].high)-32)/1.8).toPrecision(2))}} °C</td>
+    <td>{{(((dateResponse.forecast[0].low)-32)/1.8).toPrecision(1)}} °C</td>
     <td>{{dateResponse.forecast[0].text}}</td>
+
   </tr>
+
   </tbody>
 </table>
 

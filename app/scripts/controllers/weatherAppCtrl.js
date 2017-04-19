@@ -10,7 +10,6 @@ function weatherAppCtrl(weatherApi, $scope) {
   $scope.searchCity = searchCity;
   $scope.getForecast = getForecast;
   $scope.resetData = resetData;
-  $scope.dateResponse = [];
   $scope.isSearching = false;
   $scope.searchList = [];
 
@@ -21,19 +20,35 @@ function weatherAppCtrl(weatherApi, $scope) {
       .searchCityWoeid($scope.cityName)
       .then(weatherAppToPage)
   }
+
   function weatherAppToPage(response) {
     $scope.noResults = response.data.query.count == 0;
     if ($scope.noResults) {
       $scope.isSearching = false;
       return;
     }
+
     var place;
+
     if (response.data.query.count === 1) {
       place = response.data.query.results.place;
     } else {
       place = response.data.query.results.place[0];
     }
-    getForecast(place)
+
+    var isAlreadyPresent = false;
+
+    for (var i = 0; i < $scope.searchList.length; i++) {
+      isAlreadyPresent = $scope.searchList[i].id == place.woeid;
+      $scope.isSearching = false;
+    }
+
+    if (isAlreadyPresent) {
+      alert('ricerca già presente in tabella');
+      return;
+    } else {
+      getForecast(place);
+    }
   }
 
   function getForecast(dateItem) {
@@ -48,13 +63,18 @@ function weatherAppCtrl(weatherApi, $scope) {
         }
         //attach forecast to scope (view)
         var newItem = {
-          description : dateResponse.data.query.results.channel.description,
-          forecast : dateResponse.data.query.results.channel.item.forecast
-        }
+          description: dateResponse.data.query.results.channel.description,
+          forecast: dateResponse.data.query.results.channel.item.forecast,
+          id: dateItem.woeid
+        };
         $scope.searchList.push(newItem)
-      initMap({lat: parseFloat(dateResponse.data.query.results.channel.item.lat),lng: parseFloat(dateResponse.data.query.results.channel.item.long)})
-      });
+        initMap({
+          lat: parseFloat(dateResponse.data.query.results.channel.item.lat),
+          lng: parseFloat(dateResponse.data.query.results.channel.item.long)
+        });
+      })
   }
+
 
   function resetData() {
     $scope.searchList = null;
