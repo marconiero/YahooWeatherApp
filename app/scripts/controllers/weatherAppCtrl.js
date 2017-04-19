@@ -11,37 +11,29 @@ function weatherAppCtrl(weatherApi, $scope) {
   $scope.getForecast = getForecast;
   $scope.resetData = resetData;
   $scope.dateResponse = [];
-  $scope.dateResponse2 = [];
   $scope.isSearching = false;
-
-
+  $scope.searchList = [];
 
   function searchCity() {
     //l'utente ha cercato almeno una volta
-
     $scope.isSearching = true;
     weatherApi
       .searchCityWoeid($scope.cityName)
       .then(weatherAppToPage)
   }
-
   function weatherAppToPage(response) {
     $scope.noResults = response.data.query.count == 0;
     if ($scope.noResults) {
       $scope.isSearching = false;
       return;
     }
-
     var place;
-
     if (response.data.query.count === 1) {
       place = response.data.query.results.place;
     } else {
       place = response.data.query.results.place[0];
     }
-
     getForecast(place)
-
   }
 
   function getForecast(dateItem) {
@@ -51,20 +43,21 @@ function weatherAppCtrl(weatherApi, $scope) {
       .then(function (dateResponse) {
         $scope.noResults = dateResponse.data.query.count == 0;
         $scope.isSearching = false;
-
         if ($scope.noResults) {
           return;
         }
         //attach forecast to scope (view)
-          $scope.dateResponse2 = dateResponse.data.query.results.channel.description
-        $scope.dateResponse = dateResponse.data.query.results.channel.item.forecast
-
+        var newItem = {
+          description : dateResponse.data.query.results.channel.description,
+          forecast : dateResponse.data.query.results.channel.item.forecast
+        }
+        $scope.searchList.push(newItem)
       initMap({lat: parseFloat(dateResponse.data.query.results.channel.item.lat),lng: parseFloat(dateResponse.data.query.results.channel.item.long)})
       });
   }
 
   function resetData() {
-    $scope.dateResponse = null;
+    $scope.searchList = null;
   }
 
   function initMap(city) {

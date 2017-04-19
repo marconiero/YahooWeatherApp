@@ -14,8 +14,13 @@
 <div class="alert alert-warning" role="alert" ng-if="noResults">
   <p>Nessun risultato</p>
 </div>
+
 <br>
-<table class="table" ng-if="dateResponse.length > 0">
+
+<button class="btn btn-info" ng-click="resetData()">Elimina</button>
+<button class="btn btn-info" ng-click="searchCity()">Aggiorna</button>
+
+<table class="table" ng-if="searchList.length > 0">
   <thead>
   <tr>
     <th>City</th>
@@ -24,31 +29,20 @@
     <th>T-Max</th>
     <th>T-Min</th>
     <th>Condition</th>
-    <th>Delete</th>
-    <th>
-      <button class="btn btn-info" ng-click="addCity()">Aggiungi</button>
-    </th>
-    <th>
-      <button class="btn btn-info" ng-click="searchCity()">Aggiorna</button>
     </th>
   </tr>
   </thead>
-  <tbody>
-  <tr>
-    <td>{{dateResponse2.slice(19)}}</td>
-    <td>{{dateResponse[0].date}}</td>
-    <td>{{dateResponse[0].day}}</td>
-    <td>{{dateResponse[0].high}}</td>
-    <td>{{dateResponse[0].low}}</td>
-    <td>{{dateResponse[0].text}}</td>
-    <td><button class="btn btn-info" ng-click="resetData()">Elimina</button></td>
-  </tr>
 
+  <tbody>
+  <tr ng-repeat="dateResponse in searchList">
+    <td>{{dateResponse.description.slice(19)}}</td>
+    <td>{{dateResponse.forecast[0].date}}</td>
+    <td>{{dateResponse.forecast[0].day}}</td>
+    <td>{{dateResponse.forecast[0].high}}</td>
+    <td>{{dateResponse.forecast[0].low}}</td>
+    <td>{{dateResponse.forecast[0].text}}</td>
+  </tr>
   </tbody>
 </table>
 
-
-
-
-
-<div id="map" ng-if="dateResponse.length != null"></div>
+<div id="map" ng-if="searchList.length != null"></div>
